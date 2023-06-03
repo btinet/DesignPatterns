@@ -1,19 +1,23 @@
 package edu.inflk.patterns.entity;
 
-import edu.inflk.patterns.template.AgentTemplate;
-import edu.inflk.patterns.template.VehicleTemplate;
+import edu.inflk.patterns.template.Agent;
+import edu.inflk.patterns.template.Equipment;
+import edu.inflk.patterns.template.Vehicle;
 
-public class Agent extends AgentTemplate
+import java.util.ArrayList;
+
+public class Human extends Agent
 {
 
     protected String firstname;
     protected String lastname;
 
-    public Agent (String firstname, String lastname, VehicleTemplate car)
+    public Human(String firstname, String lastname, Vehicle car, ArrayList<Equipment> equipment)
     {
         this.firstname = firstname;
         this.lastname = lastname;
         this.cars.add(car);
+        this.equipment = equipment;
     }
 
 
@@ -32,7 +36,7 @@ public class Agent extends AgentTemplate
 
     // Agent darf Autos fahren, also implementieren wir den Code dafür
     @Override
-    public void addCar(VehicleTemplate car)
+    public void addCar(Vehicle car)
     {
         this.cars.add(car);
     }
@@ -43,9 +47,14 @@ public class Agent extends AgentTemplate
     }
 
     @Override
-    public VehicleTemplate getCar(int index)
+    public Vehicle getCar(int index)
     {
         return this.cars.get(index);
+    }
+
+    @Override
+    public Equipment getEquipment(int index) {
+        return this.equipment.get(index);
     }
 
 }

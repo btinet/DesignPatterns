@@ -1,9 +1,9 @@
 package edu.inflk.patterns;
 
-import edu.inflk.patterns.builder.AgentBuilder;
+import edu.inflk.patterns.builder.HumanBuilder;
 import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.entity.*;
-import edu.inflk.patterns.template.AgentTemplate;
+import edu.inflk.patterns.template.Agent;
 
 import java.util.ArrayList;
 
@@ -18,16 +18,16 @@ public class Main {
     {
 
         // Liste für die Sammlung von Agenten instantiieren
-        ArrayList<AgentTemplate> agentList = new ArrayList<>();
+        ArrayList<Agent> agentList = new ArrayList<>();
 
         // Agent vom Typ Agent mit einem Auto instantiieren
-        agentList.add(new AgentBuilder().setFirstname("James").setLastname("Bond").setCar(new Car()).createAgent());
+        agentList.add(new HumanBuilder().setFirstname("James").setLastname("Bond").setCar(new Car()).addEquipment(new Weapon("Pistole")).createHuman());
 
         // Agent vom Typ Dog instantiieren
         agentList.add(new DogBuilder().setNickname("Rex").createDog());
 
         // Für jeden Agenten Methoden ausführen
-        for (AgentTemplate agent:
+        for (Agent agent:
              agentList) {
 
             System.out.println("Agenteneigenschaften:");
@@ -36,6 +36,7 @@ public class Main {
             System.out.println(agent);
             agent.doAction();
             System.out.println(agent.getCar(0));
+            System.out.println(agent.getEquipment(0));
 
             System.out.println("=========");
 

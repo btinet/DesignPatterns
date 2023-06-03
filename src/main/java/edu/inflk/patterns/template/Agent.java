@@ -2,11 +2,13 @@ package edu.inflk.patterns.template;
 
 import java.util.ArrayList;
 
-public abstract class AgentTemplate {
+public abstract class Agent {
 
     // Attribute
 
-    protected ArrayList<VehicleTemplate> cars = new ArrayList<>();;
+    protected ArrayList<Vehicle> cars = new ArrayList<>();
+
+    protected ArrayList<Equipment> equipment = new ArrayList<>();
 
     // Pflichtmethoden
 
@@ -23,9 +25,13 @@ public abstract class AgentTemplate {
 
     // Optionale Methoden
 
-    public void addCar (VehicleTemplate car) {}
+    public void addCar (Vehicle car) {}
     public void removeCar (int index) {}
-    public VehicleTemplate getCar (int index) { return null; }
+    public Vehicle getCar (int index) { return null; }
+
+    public void addEquipment (Equipment car) {}
+    public void removeEquipment (int index) {}
+    public Equipment getEquipment (int index) { return null; }
 
     // Allgemeine Methoden
 

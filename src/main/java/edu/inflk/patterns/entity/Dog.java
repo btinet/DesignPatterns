@@ -1,8 +1,8 @@
 package edu.inflk.patterns.entity;
 
-import edu.inflk.patterns.template.AgentTemplate;
+import edu.inflk.patterns.template.Agent;
 
-public class Dog extends AgentTemplate {
+public class Dog extends Agent {
 
     protected String nickname;
 

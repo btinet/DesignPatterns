@@ -1,9 +1,9 @@
 package edu.inflk.patterns.entity;
 
 import edu.inflk.patterns.helper.IntegerHelper;
-import edu.inflk.patterns.template.VehicleTemplate;
+import edu.inflk.patterns.template.Vehicle;
 
-public class Car extends VehicleTemplate {
+public class Car extends Vehicle {
 
     private String licencePlate;
 
