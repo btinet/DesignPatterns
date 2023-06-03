@@ -10,8 +10,16 @@ public class HumanBuilder {
     private String firstname;
     private String lastname;
     private Vehicle car;
-
     private ArrayList<Equipment> equipment = new ArrayList<>();
+
+    public HumanBuilder reset() {
+        firstname = null;
+        lastname = null;
+        car = null;
+        equipment = new ArrayList<>();
+
+        return this;
+    }
 
     public HumanBuilder setFirstname(String firstname) {
         this.firstname = firstname;

@@ -25,7 +25,7 @@ public class Human extends Agent
     @Override
     public void doAction()
     {
-        System.out.println("Ich bin ein Agent und kann reden.");
+        System.out.println("Ich bin ein Mensch und kann reden, fahren und Gegenstände benutzen.");
     }
 
     @Override
@@ -42,19 +42,39 @@ public class Human extends Agent
     }
 
     @Override
-    public void removeCar(int index) {
-        this.cars.remove(index);
+    public void removeCar(int index)
+    {
+        try
+        {
+            this.cars.remove(index);
+        } catch (IndexOutOfBoundsException ignored)
+        {
+
+        }
+
     }
 
     @Override
     public Vehicle getCar(int index)
     {
-        return this.cars.get(index);
+        try
+        {
+            return this.cars.get(index);
+        } catch (IndexOutOfBoundsException exception)
+        {
+            return null;
+        }
     }
 
     @Override
     public Equipment getEquipment(int index) {
-        return this.equipment.get(index);
+        try
+        {
+            return this.equipment.get(index);
+        } catch (IndexOutOfBoundsException exception)
+        {
+            return null;
+        }
     }
 
 }
