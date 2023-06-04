@@ -13,7 +13,7 @@ public class AgentDirector {
         builder
                 .setFirstname("James")
                 .setLastname("Bond")
-                .setCar(new Car("007"))
+                .addVehicle(new Car("007"))
                 .addEquipment(new Weapon("Walther P8"))
         ;
 

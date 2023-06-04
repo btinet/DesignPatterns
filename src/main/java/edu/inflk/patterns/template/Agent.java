@@ -6,7 +6,7 @@ public abstract class Agent {
 
     // Attribute
 
-    protected ArrayList<Vehicle> cars = new ArrayList<>();
+    protected ArrayList<Vehicle> vehicles = new ArrayList<>();
 
     protected ArrayList<Equipment> equipment = new ArrayList<>();
 
@@ -25,13 +25,15 @@ public abstract class Agent {
 
     // Optionale Methoden
 
-    public void addCar (Vehicle car) {}
-    public void removeCar (int index) {}
-    public Vehicle getCar (int index) { return null; }
+    public void addVehicle (Vehicle car) {}
+    public void removeVehicle (int index) {}
+    public Vehicle getVehicle (int index) { return null; }
+    public ArrayList<Vehicle> getVehicles () { return new ArrayList<>(); }
 
     public void addEquipment (Equipment car) {}
     public void removeEquipment (int index) {}
     public Equipment getEquipment (int index) { return null; }
+    public ArrayList<Equipment> getEquipment () { return new ArrayList<>();  }
 
     // Allgemeine Methoden
 

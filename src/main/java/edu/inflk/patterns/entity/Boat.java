@@ -4,19 +4,19 @@ import edu.inflk.patterns.helper.IntegerHelper;
 import edu.inflk.patterns.template.Vehicle;
 import edu.inflk.patterns.template.VehicleType;
 
-public class Car extends Vehicle {
+public class Boat extends Vehicle {
 
-    private String licencePlate;
+    private final String licencePlate;
 
-    public Car ()
+    public Boat()
     {
-        super(VehicleType.CAR);
-        this.licencePlate = "B-TK" + IntegerHelper.generateRandomInteger(1000,9999);
+        super(VehicleType.BOAT);
+        this.licencePlate = "DSV-DE-" + IntegerHelper.generateRandomInteger(1000,9999);
     }
 
-    public Car (String licencePlate)
+    public Boat(String licencePlate)
     {
-        super(VehicleType.CAR);
+        super(VehicleType.BOAT);
         this.licencePlate = licencePlate;
     }
 

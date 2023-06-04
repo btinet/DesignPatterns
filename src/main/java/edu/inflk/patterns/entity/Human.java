@@ -12,11 +12,11 @@ public class Human extends Agent
     protected String firstname;
     protected String lastname;
 
-    public Human(String firstname, String lastname, Vehicle car, ArrayList<Equipment> equipment)
+    public Human(String firstname, String lastname, ArrayList<Vehicle> vehicles, ArrayList<Equipment> equipment)
     {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.cars.add(car);
+        this.vehicles = vehicles;
         this.equipment = equipment;
     }
 
@@ -36,17 +36,17 @@ public class Human extends Agent
 
     // Agent darf Autos fahren, also implementieren wir den Code dafür
     @Override
-    public void addCar(Vehicle car)
+    public void addVehicle(Vehicle car)
     {
-        this.cars.add(car);
+        this.vehicles.add(car);
     }
 
     @Override
-    public void removeCar(int index)
+    public void removeVehicle(int index)
     {
         try
         {
-            this.cars.remove(index);
+            this.vehicles.remove(index);
         } catch (IndexOutOfBoundsException ignored)
         {
 
@@ -55,15 +55,40 @@ public class Human extends Agent
     }
 
     @Override
-    public Vehicle getCar(int index)
+    public Vehicle getVehicle(int index)
     {
         try
         {
-            return this.cars.get(index);
+            return this.vehicles.get(index);
         } catch (IndexOutOfBoundsException exception)
         {
             return null;
         }
+    }
+
+    @Override
+    public ArrayList<Vehicle> getVehicles()
+    {
+        return this.vehicles;
+    }
+
+    @Override
+    public void addEquipment(Equipment equipment)
+    {
+        this.equipment.add(equipment);
+    }
+
+    @Override
+    public void removeEquipment(int index)
+    {
+        try
+        {
+            this.equipment.remove(index);
+        } catch (IndexOutOfBoundsException ignored)
+        {
+
+        }
+
     }
 
     @Override
@@ -75,6 +100,12 @@ public class Human extends Agent
         {
             return null;
         }
+    }
+
+    @Override
+    public ArrayList<Equipment> getEquipment()
+    {
+        return this.equipment;
     }
 
 }

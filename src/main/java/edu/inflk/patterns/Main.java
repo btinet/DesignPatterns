@@ -5,6 +5,8 @@ import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.director.AgentDirector;
 import edu.inflk.patterns.entity.*;
 import edu.inflk.patterns.template.Agent;
+import edu.inflk.patterns.template.Equipment;
+import edu.inflk.patterns.template.Vehicle;
 
 import java.util.ArrayList;
 
@@ -29,7 +31,7 @@ public class Main {
          */
 
         // Agent vom Typ Agent mit einem Auto instantiieren
-        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").setCar(new Car()).addEquipment(new Weapon("Pistole")).createHuman();
+        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new Car()).addEquipment(new Weapon("Pistole")).createHuman();
 
         // Agent vom Typ Dog instantiieren
         Agent agent2 = new DogBuilder().setNickname("Rex").createDog();
@@ -41,8 +43,10 @@ public class Main {
         AgentDirector director = new AgentDirector();
         HumanBuilder humanBuilder = new HumanBuilder();
 
+        // Ein paar Fahrzeuge hinzufügen
         humanBuilder
-                .setCar(new Car())
+                .addVehicle(new Car())
+                .addVehicle(new Boat())
         ;
 
         Agent agent3 = director.createGoldfinger(humanBuilder);
@@ -76,14 +80,24 @@ public class Main {
              agentList) {
 
             System.out.println("Agenteneigenschaften:");
-            System.out.println("---------");
+            System.out.println("---------------------");
 
             System.out.println(agent);
             agent.doAction();
-            System.out.println("Auto: " + agent.getCar(0));
-            System.out.println("Ausrüstung: " + agent.getEquipment(0));
 
-            System.out.println("=========");
+            // Alle Fahrzeuge ausgeben
+            for (Vehicle vehicle :
+                 agent.getVehicles()   ) {
+                System.out.printf("%s: %s %n",vehicle.getVehicleType(),vehicle);
+            }
+
+            // Alle Ausrüstungsgegenstände ausgeben
+            for (Equipment equipment :
+                    agent.getEquipment()   ) {
+                System.out.println("Ausrüstung: " + equipment);
+            }
+
+            System.out.println("=====================");
             System.out.println();
 
         }
