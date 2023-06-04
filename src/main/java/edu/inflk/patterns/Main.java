@@ -1,8 +1,10 @@
 package edu.inflk.patterns;
 
+import edu.inflk.patterns.builder.BoatBuilder;
 import edu.inflk.patterns.builder.HumanBuilder;
 import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.director.AgentDirector;
+import edu.inflk.patterns.director.VehicleDirector;
 import edu.inflk.patterns.entity.*;
 import edu.inflk.patterns.template.Agent;
 import edu.inflk.patterns.template.Equipment;
@@ -43,16 +45,27 @@ public class Main {
         AgentDirector director = new AgentDirector();
         HumanBuilder humanBuilder = new HumanBuilder();
 
+        VehicleDirector vehicleDirector = new VehicleDirector();
+        BoatBuilder boatBuilder = new BoatBuilder();
+
+        // Boot zusammenbauen und Rex einsteigen lassen
+        Boat raceBoat = vehicleDirector.createRaceBoat(boatBuilder);
+
         // Ein paar Fahrzeuge hinzufügen
         humanBuilder
                 .addVehicle(new Car())
-                .addVehicle(new Boat())
+                .addVehicle(raceBoat)
         ;
+        boatBuilder.reset();
 
         Agent agent3 = director.createGoldfinger(humanBuilder);
 
         humanBuilder.reset(); // Builder zurücksetzen, damit keine Fahrgemeinschaften entstehen.
         Agent agent4 = director.createBond(humanBuilder);
+
+        raceBoat.addPassenger(agent3);
+        raceBoat.addPassenger(agent1);
+        raceBoat.addPassenger(agent2);
 
         /* Class Templates
 
@@ -89,6 +102,13 @@ public class Main {
             for (Vehicle vehicle :
                  agent.getVehicles()   ) {
                 System.out.printf("%s: %s %n",vehicle.getVehicleType(),vehicle);
+
+                // Alle Passagiere auflisten
+                for (Agent passenger:
+                     vehicle.getPassengers()) {
+                    System.out.printf("Im %s sitzt: %s%n",vehicle.getVehicleType(), passenger);
+                }
+
             }
 
             // Alle Ausrüstungsgegenstände ausgeben
