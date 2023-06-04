@@ -30,7 +30,7 @@ public class Main {
         Agenten erzeugt. Der Builder instantiiert mit create[...]() ein neues Objekt, das von Agent erbt.
          */
 
-        // Agent vom Typ Agent mit einem Auto instantiieren
+        // Agent vom Typ Human mit einem Auto instantiieren
         Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new Car()).addEquipment(new Weapon("Pistole")).createHuman();
 
         // Agent vom Typ Dog instantiieren
