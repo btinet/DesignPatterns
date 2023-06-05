@@ -28,7 +28,7 @@ public class Main {
         /* Builder
 
         Mit einem Builder kann ein Objekt bedarfsorientiert zusammengebaut werden. Der Vorteil ist außerdem, dass auf
-        unübersichtliche Constructors im Client Code verzichtet werden kann. Im Folgenden werden zwei unterschiedliche
+        unübersichtliche Konstruktoren im Client Code verzichtet werden kann. Im Folgenden werden zwei unterschiedliche
         Agenten erzeugt. Der Builder instantiiert mit create[...]() ein neues Objekt, das von Agent erbt.
          */
 
@@ -39,7 +39,7 @@ public class Main {
         Agent agent2 = new DogBuilder().setNickname("Rex").createDog();
 
         /*
-        Über eine Anweisungsklasse könnten wir auch eine Charakterbibliothek erstellen.
+        Über eine Anweisungsklasse könnten wir auch eine Charakterbibliothek erstellen:
          */
 
         AgentDirector director = new AgentDirector();
