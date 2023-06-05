@@ -63,7 +63,7 @@ public class Main {
         humanBuilder.reset(); // Builder zurücksetzen, damit keine Fahrgemeinschaften entstehen.
         Agent agent4 = director.createBond(humanBuilder);
 
-        raceBoat.addPassenger(agent3);
+        raceBoat.setDriver(agent3);
         raceBoat.addPassenger(agent1);
         raceBoat.addPassenger(agent2);
 
@@ -112,6 +112,14 @@ public class Main {
                 } else {
                     System.out.println("Fahrzeug hat keinen Motor.");
                 }
+
+                if(vehicle.getDriver() != null)
+                {
+                    System.out.printf("%s ist der Fahrer des Fahrzeugs.%n",vehicle.getDriver());
+                } else {
+                    System.out.println("Das Fahrzeug hat im Moment keinen Fahrer.");
+                }
+
 
                 // Alle Passagiere auflisten
                 for (Agent passenger:

@@ -11,10 +11,11 @@ public class Boat extends Vehicle {
 
     private final String licencePlate;
 
-    public Boat(Integer seats, Double fuel, Boolean isStarted, Boolean hasEngine, ArrayList<Agent> passengers, String licencePlate)
+    public Boat(Integer seats, Double fuel, Boolean isStarted, Boolean hasEngine, Agent driver, ArrayList<Agent> passengers, String licencePlate)
     {
         super(VehicleType.BOAT);
         this.setSeats(seats);
+        this.setDriver(driver);
         this.setPassengers(passengers);
         if(hasEngine)
         {

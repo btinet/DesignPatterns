@@ -9,6 +9,7 @@ public abstract class Vehicle {
     protected Boolean hasEngine = false;
     protected Double fuel = 0.0;
     private Integer seats = 1;
+    private Agent driver;
     private ArrayList<Agent> passengers = new ArrayList<>(seats);
 
     public Vehicle (VehicleType vehicleType)
@@ -40,8 +41,16 @@ public abstract class Vehicle {
     }
 
     public void setSeats(Integer seats) {
-        this.passengers = new ArrayList<>(seats);
+        this.passengers = new ArrayList<>(seats-1);
         this.seats = seats;
+    }
+
+    public Agent getDriver() {
+        return driver;
+    }
+
+    public void setDriver(Agent driver) {
+        this.driver = driver;
     }
 
     public ArrayList<Agent> getPassengers()
@@ -64,7 +73,7 @@ public abstract class Vehicle {
         this.passengers = passengers;
     }
     public void addPassenger(Agent passenger) {
-        if(this.passengers.size() < this.seats)
+        if(this.passengers.size() < this.seats-1)
         {
             this.passengers.add(passenger);
         }

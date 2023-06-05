@@ -9,8 +9,8 @@ public class BoatBuilder {
     private Integer seats = 1;
     private Double fuel;
     private Boolean isStarted;
-
     private Boolean hasEngine;
+    private Agent driver;
     private ArrayList<Agent> passengers = new ArrayList<>();
     private String licencePlate;
 
@@ -42,6 +42,10 @@ public class BoatBuilder {
         this.hasEngine = hasEngine;
     }
 
+    public void setDriver(Agent driver) {
+        this.driver = driver;
+    }
+
     public BoatBuilder setPassengers(ArrayList<Agent> passengers) {
         this.passengers = passengers;
         return this;
@@ -58,6 +62,6 @@ public class BoatBuilder {
     }
 
     public Boat createBoat() {
-        return new Boat(seats, fuel, isStarted, hasEngine, passengers, licencePlate);
+        return new Boat(seats, fuel, isStarted, hasEngine, driver, passengers, licencePlate);
     }
 }
