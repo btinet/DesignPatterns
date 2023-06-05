@@ -103,6 +103,16 @@ public class Main {
                  agent.getVehicles()   ) {
                 System.out.printf("%s: %s %n",vehicle.getVehicleType(),vehicle);
 
+                // Gibt es einen Motor, alle Daten ausgeben:
+                if(vehicle.hasEngine())
+                {
+                    System.out.println("Fahrzeug ist motorbetrieben.");
+                    System.out.printf("Treibstoffmenge: %S l.%n",vehicle.getFuel());
+                    System.out.printf("Motor ist gestartet: %s%n",vehicle.isStarted());
+                } else {
+                    System.out.println("Fahrzeug hat keinen Motor.");
+                }
+
                 // Alle Passagiere auflisten
                 for (Agent passenger:
                      vehicle.getPassengers()) {

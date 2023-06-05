@@ -5,9 +5,9 @@ import java.util.ArrayList;
 public abstract class Vehicle {
 
     private final VehicleType vehicleType;
-
-    private Boolean isStarted = false;
-    private Double fuel = 0.0;
+    protected Boolean isStarted = false;
+    protected Boolean hasEngine = false;
+    protected Double fuel = 0.0;
     private Integer seats = 1;
     private ArrayList<Agent> passengers = new ArrayList<>(seats);
 
@@ -23,9 +23,13 @@ public abstract class Vehicle {
         return this.vehicleType;
     }
 
-    public Boolean isStarted() { return null; }
+    public Boolean isStarted() { return false; }
 
     public void setStarted(boolean started) {}
+
+    public Boolean hasEngine() { return false; }
+
+    public void setHasEngine(Boolean hasEngine) {}
 
     public Double getFuel() { return null; }
 

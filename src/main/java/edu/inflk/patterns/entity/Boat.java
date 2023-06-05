@@ -11,13 +11,17 @@ public class Boat extends Vehicle {
 
     private final String licencePlate;
 
-    public Boat(Integer seats, Double fuel, Boolean isStarted, ArrayList<Agent> passengers, String licencePlate)
+    public Boat(Integer seats, Double fuel, Boolean isStarted, Boolean hasEngine, ArrayList<Agent> passengers, String licencePlate)
     {
         super(VehicleType.BOAT);
         this.setSeats(seats);
         this.setPassengers(passengers);
-        this.setFuel(fuel);
-        this.setStarted(isStarted);
+        if(hasEngine)
+        {
+            this.setFuel(fuel);
+            this.hasEngine = true;
+            this.setStarted(isStarted);
+        }
 
         if(licencePlate == null)
         {
@@ -29,8 +33,37 @@ public class Boat extends Vehicle {
     }
 
     @Override
+    public Boolean isStarted() {
+        return super.isStarted;
+    }
+
+    @Override
+    public void setStarted(boolean started) {
+        super.isStarted = started;
+    }
+
+    @Override
+    public Boolean hasEngine() {
+        return super.hasEngine;
+    }
+
+    @Override
+    public Double getFuel() {
+        return super.fuel;
+    }
+
+    @Override
+    public void setFuel(double fuel) {
+        super.fuel = fuel;
+    }
+
+    @Override
     public String toString() {
         return this.licencePlate;
+    }
+
+    public String getLicencePlate() {
+        return licencePlate;
     }
 
 }

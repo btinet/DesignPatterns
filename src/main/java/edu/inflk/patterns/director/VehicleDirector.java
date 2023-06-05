@@ -17,6 +17,7 @@ public class VehicleDirector {
                 .setSeats(4)
                 .setFuel(100.0)
                 .setIsStarted(false)
+                .setEngine(true)
         ;
 
         return builder.createBoat();
