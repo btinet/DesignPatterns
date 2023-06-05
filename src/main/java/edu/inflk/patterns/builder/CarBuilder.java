@@ -1,20 +1,19 @@
 package edu.inflk.patterns.builder;
 
-import edu.inflk.patterns.entity.Boat;
+import edu.inflk.patterns.entity.Car;
 import edu.inflk.patterns.template.Agent;
 
 import java.util.ArrayList;
 
-public class BoatBuilder {
+public class CarBuilder {
     private Integer seats = 1;
-    private Double fuel;
-    private Boolean isStarted;
-    private Boolean hasEngine;
+    private Double fuel = 0.0;
+    private Boolean isStarted = false;
     private Agent driver;
     private ArrayList<Agent> passengers = new ArrayList<>(seats-1);
     private String licencePlate;
 
-    public BoatBuilder reset() {
+    public CarBuilder reset() {
         seats = 1;
         fuel = 0.0;
         isStarted = false;
@@ -23,45 +22,42 @@ public class BoatBuilder {
         return this;
     }
 
-    public BoatBuilder setSeats(Integer seats) {
+    public CarBuilder setSeats(Integer seats) {
         this.seats = seats;
         return this;
     }
 
-    public BoatBuilder setFuel(Double fuel) {
+    public CarBuilder setFuel(Double fuel) {
         this.fuel = fuel;
         return this;
     }
 
-    public BoatBuilder setIsStarted(Boolean isStarted) {
+    public CarBuilder setIsStarted(Boolean isStarted) {
         this.isStarted = isStarted;
         return this;
     }
 
-    public void setEngine(Boolean hasEngine) {
-        this.hasEngine = hasEngine;
-    }
-
-    public void setDriver(Agent driver) {
+    public CarBuilder setDriver(Agent driver) {
         this.driver = driver;
+        return this;
     }
 
-    public BoatBuilder setPassengers(ArrayList<Agent> passengers) {
+    public CarBuilder setPassengers(ArrayList<Agent> passengers) {
         this.passengers = passengers;
         return this;
     }
 
-    public BoatBuilder addPassenger(Agent passenger) {
+    public CarBuilder addPassenger(Agent passenger) {
         this.passengers.add(passenger);
         return this;
     }
 
-    public BoatBuilder setLicencePlate(String licencePlate) {
+    public CarBuilder setLicencePlate(String licencePlate) {
         this.licencePlate = licencePlate;
         return this;
     }
 
-    public Boat createBoat() {
-        return new Boat(seats, fuel, isStarted, hasEngine, driver, passengers, licencePlate);
+    public Car createCar() {
+        return new Car(seats, fuel, isStarted, driver, passengers, licencePlate);
     }
 }

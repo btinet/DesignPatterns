@@ -1,6 +1,7 @@
 package edu.inflk.patterns;
 
 import edu.inflk.patterns.builder.BoatBuilder;
+import edu.inflk.patterns.builder.CarBuilder;
 import edu.inflk.patterns.builder.HumanBuilder;
 import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.director.AgentDirector;
@@ -33,7 +34,7 @@ public class Main {
          */
 
         // Agent vom Typ Human mit einem Auto instantiieren
-        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new Car()).addEquipment(new Weapon("Pistole")).createHuman();
+        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new CarBuilder().createCar()).addEquipment(new Weapon("Pistole")).createHuman();
 
         // Agent vom Typ Dog instantiieren
         Agent agent2 = new DogBuilder().setNickname("Rex").createDog();
@@ -53,7 +54,7 @@ public class Main {
 
         // Ein paar Fahrzeuge hinzufügen
         humanBuilder
-                .addVehicle(new Car())
+                .addVehicle(new CarBuilder().createCar())
                 .addVehicle(raceBoat)
         ;
         boatBuilder.reset();

@@ -1,8 +1,8 @@
 package edu.inflk.patterns.director;
 
+import edu.inflk.patterns.builder.CarBuilder;
 import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.builder.HumanBuilder;
-import edu.inflk.patterns.entity.Car;
 import edu.inflk.patterns.entity.Weapon;
 import edu.inflk.patterns.template.Agent;
 
@@ -13,7 +13,7 @@ public class AgentDirector {
         builder
                 .setFirstname("James")
                 .setLastname("Bond")
-                .addVehicle(new Car("007"))
+                .addVehicle(new CarBuilder().setLicencePlate("007").createCar())
                 .addEquipment(new Weapon("Walther P8"))
         ;
 
