@@ -89,6 +89,8 @@ public class Main {
         agentList.add(agent3);
         agentList.add(agent4);
 
+        Agent bond = new Human("james","bond",null,null);
+
         // Für jeden Agenten Methoden ausführen
         for (Agent agent:
              agentList) {
@@ -121,6 +123,11 @@ public class Main {
                     System.out.println("Das Fahrzeug hat im Moment keinen Fahrer.");
                 }
 
+                for (Equipment equipment :
+                        vehicle.getEquipment()   ) {
+                    System.out.println("Fahrzeug-Ausrüstung: " + equipment);
+                }
+
 
                 // Alle Passagiere auflisten
                 for (Agent passenger:
@@ -133,7 +140,7 @@ public class Main {
             // Alle Ausrüstungsgegenstände ausgeben
             for (Equipment equipment :
                     agent.getEquipment()   ) {
-                System.out.println("Ausrüstung: " + equipment);
+                System.out.println("Agenten-Ausrüstung: " + equipment);
             }
 
             System.out.println("=====================");

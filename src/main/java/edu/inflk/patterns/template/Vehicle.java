@@ -11,6 +11,7 @@ public abstract class Vehicle {
     private Integer seats = 1;
     private Agent driver;
     private ArrayList<Agent> passengers = new ArrayList<>(seats);
+    protected ArrayList<Equipment> equipment = new ArrayList<>();
 
     public Vehicle (VehicleType vehicleType)
     {
@@ -105,5 +106,11 @@ public abstract class Vehicle {
     {
         this.passengers.remove(passenger);
     }
+
+    public void addEquipment (Equipment equipment) {}
+    public void removeEquipment (int index) {}
+    public void removeEquipment (Equipment equipment) {}
+    public Equipment getEquipment (int index) { return null; }
+    public ArrayList<Equipment> getEquipment () { return new ArrayList<>();  }
 
 }

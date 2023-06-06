@@ -13,8 +13,8 @@ public class AgentDirector {
         builder
                 .setFirstname("James")
                 .setLastname("Bond")
-                .addVehicle(new CarBuilder().setLicencePlate("007").createCar())
-                .addEquipment(new Weapon("Walther P8"))
+                .addVehicle(new VehicleDirector().createRaceCar(new CarBuilder()))
+                .addEquipment(new Weapon("Wasserpistole"))
         ;
 
         return builder.createHuman();

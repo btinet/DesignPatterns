@@ -7,7 +7,6 @@ public abstract class Agent {
     // Attribute
 
     protected ArrayList<Vehicle> vehicles = new ArrayList<>();
-
     protected ArrayList<Equipment> equipment = new ArrayList<>();
 
     // Pflichtmethoden
@@ -30,8 +29,9 @@ public abstract class Agent {
     public Vehicle getVehicle (int index) { return null; }
     public ArrayList<Vehicle> getVehicles () { return new ArrayList<>(); }
 
-    public void addEquipment (Equipment car) {}
+    public void addEquipment (Equipment equipment) {}
     public void removeEquipment (int index) {}
+    public void removeEquipment (Equipment equipment) {}
     public Equipment getEquipment (int index) { return null; }
     public ArrayList<Equipment> getEquipment () { return new ArrayList<>();  }
 

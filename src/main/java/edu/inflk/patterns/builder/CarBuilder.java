@@ -2,6 +2,7 @@ package edu.inflk.patterns.builder;
 
 import edu.inflk.patterns.entity.Car;
 import edu.inflk.patterns.template.Agent;
+import edu.inflk.patterns.template.Equipment;
 
 import java.util.ArrayList;
 
@@ -11,6 +12,7 @@ public class CarBuilder {
     private Boolean isStarted = false;
     private Agent driver;
     private ArrayList<Agent> passengers = new ArrayList<>(seats-1);
+    private ArrayList<Equipment> equipment = new ArrayList<>();
     private String licencePlate;
 
     public CarBuilder reset() {
@@ -52,12 +54,22 @@ public class CarBuilder {
         return this;
     }
 
+    public CarBuilder setEquipment(ArrayList<Equipment> equipment) {
+        this.equipment = equipment;
+        return this;
+    }
+
+    public CarBuilder addEquipment(Equipment equipment) {
+        this.equipment.add(equipment);
+        return this;
+    }
+
     public CarBuilder setLicencePlate(String licencePlate) {
         this.licencePlate = licencePlate;
         return this;
     }
 
     public Car createCar() {
-        return new Car(seats, fuel, isStarted, driver, passengers, licencePlate);
+        return new Car(seats, fuel, isStarted, driver, passengers, equipment, licencePlate);
     }
 }
