@@ -1,6 +1,7 @@
 package edu.inflk.patterns;
 
 import edu.inflk.patterns.builder.BoatBuilder;
+import edu.inflk.patterns.builder.CarBuilder;
 import edu.inflk.patterns.builder.HumanBuilder;
 import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.director.AgentDirector;
@@ -33,7 +34,7 @@ public class Main {
          */
 
         // Agent vom Typ Human mit einem Auto instantiieren
-        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new Car()).addEquipment(new Weapon("Pistole")).createHuman();
+        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new CarBuilder().createCar()).addEquipment(new Weapon("Pistole")).createHuman();
 
         // Agent vom Typ Dog instantiieren
         Agent agent2 = new DogBuilder().setNickname("Rex").createDog();
@@ -53,7 +54,7 @@ public class Main {
 
         // Ein paar Fahrzeuge hinzufügen
         humanBuilder
-                .addVehicle(new Car())
+                .addVehicle(new CarBuilder().createCar())
                 .addVehicle(raceBoat)
         ;
         boatBuilder.reset();
@@ -88,6 +89,8 @@ public class Main {
         agentList.add(agent3);
         agentList.add(agent4);
 
+        Agent bond = new Human("james","bond",null,null);
+
         // Für jeden Agenten Methoden ausführen
         for (Agent agent:
              agentList) {
@@ -120,6 +123,11 @@ public class Main {
                     System.out.println("Das Fahrzeug hat im Moment keinen Fahrer.");
                 }
 
+                for (Equipment equipment :
+                        vehicle.getEquipment()   ) {
+                    System.out.println("Fahrzeug-Ausrüstung: " + equipment);
+                }
+
 
                 // Alle Passagiere auflisten
                 for (Agent passenger:
@@ -132,7 +140,7 @@ public class Main {
             // Alle Ausrüstungsgegenstände ausgeben
             for (Equipment equipment :
                     agent.getEquipment()   ) {
-                System.out.println("Ausrüstung: " + equipment);
+                System.out.println("Agenten-Ausrüstung: " + equipment);
             }
 
             System.out.println("=====================");

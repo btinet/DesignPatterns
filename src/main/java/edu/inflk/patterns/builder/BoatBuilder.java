@@ -11,14 +11,14 @@ public class BoatBuilder {
     private Boolean isStarted;
     private Boolean hasEngine;
     private Agent driver;
-    private ArrayList<Agent> passengers = new ArrayList<>();
+    private ArrayList<Agent> passengers = new ArrayList<>(seats-1);
     private String licencePlate;
 
     public BoatBuilder reset() {
         seats = 1;
         fuel = 0.0;
         isStarted = false;
-        passengers = new ArrayList<>(seats);
+        passengers = new ArrayList<>(seats-1);
 
         return this;
     }
