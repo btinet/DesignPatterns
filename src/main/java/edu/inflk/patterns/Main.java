@@ -33,8 +33,15 @@ public class Main {
         Agenten erzeugt. Der Builder instantiiert mit create[...]() ein neues Objekt, das von Agent erbt.
          */
 
-        // Agent vom Typ Human mit einem Auto instantiieren
-        Agent agent1 = new HumanBuilder().setFirstname("James").setLastname("Bond").addVehicle(new CarBuilder().createCar()).addEquipment(new Weapon("Pistole")).createHuman();
+        // BISHER: Agent über Constructor erstellen
+        Agent bond = new Human("james","bond",null,null);
+
+        // MIT DESIGN PATTERN: Agent vom Typ Human mit einem Auto instantiieren
+        Agent agent1 = new HumanBuilder()
+                .setFirstname("James")
+                .setLastname("Bond")
+                .addVehicle(new CarBuilder().createCar()).addEquipment(new Weapon("Pistole"))
+                .createHuman();
 
         // Agent vom Typ Dog instantiieren
         Agent agent2 = new DogBuilder().setNickname("Rex").createDog();
@@ -49,7 +56,7 @@ public class Main {
         VehicleDirector vehicleDirector = new VehicleDirector();
         BoatBuilder boatBuilder = new BoatBuilder();
 
-        // Boot zusammenbauen und Rex einsteigen lassen
+        // Boot zusammenbauen
         Boat raceBoat = vehicleDirector.createRaceBoat(boatBuilder);
 
         // Ein paar Fahrzeuge hinzufügen
@@ -64,6 +71,7 @@ public class Main {
         humanBuilder.reset(); // Builder zurücksetzen, damit keine Fahrgemeinschaften entstehen.
         Agent agent4 = director.createBond(humanBuilder);
 
+        // Fahrer und Passagiere einsteigen lassen
         raceBoat.setDriver(agent3);
         raceBoat.addPassenger(agent1);
         raceBoat.addPassenger(agent2);
@@ -88,8 +96,6 @@ public class Main {
         agentList.add(agent2);
         agentList.add(agent3);
         agentList.add(agent4);
-
-        Agent bond = new Human("james","bond",null,null);
 
         // Für jeden Agenten Methoden ausführen
         for (Agent agent:
