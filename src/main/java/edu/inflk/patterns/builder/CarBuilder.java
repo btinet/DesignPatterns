@@ -11,7 +11,7 @@ public class CarBuilder {
     private Double fuel = 0.0;
     private Boolean isStarted = false;
     private Agent driver;
-    private ArrayList<Agent> passengers = new ArrayList<>(seats-1);
+    private ArrayList<Agent> passengers = new ArrayList<>(0);
     private ArrayList<Equipment> equipment = new ArrayList<>();
     private String licencePlate;
 
@@ -19,7 +19,7 @@ public class CarBuilder {
         seats = 1;
         fuel = 0.0;
         isStarted = false;
-        passengers = new ArrayList<>(seats-1);
+        passengers = new ArrayList<>(0);
 
         return this;
     }

@@ -1,5 +1,6 @@
 package edu.inflk.patterns;
 
+
 import edu.inflk.patterns.builder.BoatBuilder;
 import edu.inflk.patterns.builder.CarBuilder;
 import edu.inflk.patterns.builder.HumanBuilder;
@@ -22,6 +23,8 @@ public class Main {
      */
     public static void main(String[] args)
     {
+        System.out.println("HALLO");
+        System.exit(1);
 
         // Liste für die Sammlung von Agenten instantiieren
         ArrayList<Agent> agentList = new ArrayList<>();
@@ -107,12 +110,14 @@ public class Main {
             System.out.println(agent);
             agent.doAction();
 
+            System.out.println("MOTOR?");
             // Alle Fahrzeuge ausgeben
             for (Vehicle vehicle :
                  agent.getVehicles()   ) {
                 System.out.printf("%s: %s %n",vehicle.getVehicleType(),vehicle);
 
                 // Gibt es einen Motor, alle Daten ausgeben:
+
                 if(vehicle.hasEngine())
                 {
                     System.out.println("Fahrzeug ist motorbetrieben.");

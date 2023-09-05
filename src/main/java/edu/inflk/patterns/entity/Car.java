@@ -10,7 +10,7 @@ import java.util.ArrayList;
 
 public class Car extends Vehicle {
 
-    private String licencePlate;
+    private final String licencePlate;
 
     public Car (Integer seats, Double fuel, Boolean isStarted, Agent driver, ArrayList<Agent> passengers, ArrayList<Equipment> equipment, String licencePlate)
     {
@@ -19,7 +19,7 @@ public class Car extends Vehicle {
         this.setDriver(driver);
         this.setPassengers(passengers);
         this.setFuel(fuel);
-        this.hasEngine = true;
+        setHasEngine(true);
         this.setStarted(isStarted);
         this.equipment = equipment;
 
@@ -36,29 +36,31 @@ public class Car extends Vehicle {
         return this.licencePlate;
     }
 
-    @Override
-    public Boolean hasEngine() {
-        return super.hasEngine;
-    }
 
     @Override
     public Boolean isStarted() {
-        return super.isStarted;
+        return this.isStarted;
     }
 
     @Override
     public void setStarted(boolean started) {
-        super.isStarted = started;
+        this.isStarted = started;
     }
 
     @Override
     public Double getFuel() {
-        return super.fuel;
+        return this.fuel;
     }
 
     @Override
     public void setFuel(double fuel) {
-        super.fuel = fuel;
+        this.fuel = fuel;
+    }
+
+    @Override
+    public boolean hasEngine() {
+        System.out.println("hat nen Motor?" + super.hasEngine());
+        return super.hasEngine();
     }
 
     public String getLicencePlate() {

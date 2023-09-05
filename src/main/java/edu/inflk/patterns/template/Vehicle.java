@@ -6,7 +6,7 @@ public abstract class Vehicle {
 
     private final VehicleType vehicleType;
     protected Boolean isStarted = false;
-    protected Boolean hasEngine = false;
+    protected boolean hasEngine;
     protected Double fuel = 0.0;
     private Integer seats = 1;
     private Agent driver;
@@ -29,9 +29,12 @@ public abstract class Vehicle {
 
     public void setStarted(boolean started) {}
 
-    public Boolean hasEngine() { return false; }
+    public boolean hasEngine() {
+        System.out.println("hat nen Motor?" + this.hasEngine);
+        return this.hasEngine;
+    }
 
-    public void setHasEngine(Boolean hasEngine) {}
+    public void setHasEngine(boolean hasEngine) { this.hasEngine = hasEngine; }
 
     public Double getFuel() { return null; }
 

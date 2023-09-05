@@ -20,7 +20,7 @@ public class Boat extends Vehicle {
         if(hasEngine)
         {
             this.setFuel(fuel);
-            this.hasEngine = true;
+            setHasEngine(true);
             this.setStarted(isStarted);
         }
 
@@ -41,11 +41,6 @@ public class Boat extends Vehicle {
     @Override
     public void setStarted(boolean started) {
         super.isStarted = started;
-    }
-
-    @Override
-    public Boolean hasEngine() {
-        return super.hasEngine;
     }
 
     @Override
