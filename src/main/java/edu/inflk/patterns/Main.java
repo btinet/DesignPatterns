@@ -23,8 +23,6 @@ public class Main {
      */
     public static void main(String[] args)
     {
-        System.out.println("HALLO");
-        System.exit(1);
 
         // Liste für die Sammlung von Agenten instantiieren
         ArrayList<Agent> agentList = new ArrayList<>();
@@ -110,7 +108,6 @@ public class Main {
             System.out.println(agent);
             agent.doAction();
 
-            System.out.println("MOTOR?");
             // Alle Fahrzeuge ausgeben
             for (Vehicle vehicle :
                  agent.getVehicles()   ) {

@@ -59,7 +59,6 @@ public class Car extends Vehicle {
 
     @Override
     public boolean hasEngine() {
-        System.out.println("hat nen Motor?" + super.hasEngine());
         return super.hasEngine();
     }
 

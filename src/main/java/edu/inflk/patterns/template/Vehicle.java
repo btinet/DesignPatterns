@@ -30,7 +30,6 @@ public abstract class Vehicle {
     public void setStarted(boolean started) {}
 
     public boolean hasEngine() {
-        System.out.println("hat nen Motor?" + this.hasEngine);
         return this.hasEngine;
     }
 
