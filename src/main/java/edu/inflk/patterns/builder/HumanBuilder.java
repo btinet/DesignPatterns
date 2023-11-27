@@ -1,6 +1,7 @@
 package edu.inflk.patterns.builder;
 
 import edu.inflk.patterns.entity.Human;
+import edu.inflk.patterns.template.AgentType;
 import edu.inflk.patterns.template.Equipment;
 import edu.inflk.patterns.template.Vehicle;
 
@@ -11,6 +12,8 @@ public class HumanBuilder {
     private String lastname;
     private ArrayList<Vehicle> vehicles = new ArrayList<>();
     private ArrayList<Equipment> equipment = new ArrayList<>();
+
+    private AgentType agentType = AgentType.BEGINNER;
 
     public HumanBuilder reset() {
         firstname = null;
@@ -41,8 +44,13 @@ public class HumanBuilder {
         return this;
     }
 
+    public HumanBuilder setType(AgentType agentType) {
+        this.agentType = agentType;
+        return this;
+    }
+
     public Human createHuman() {
-        return new Human(firstname, lastname, vehicles, equipment);
+        return new Human(firstname, lastname, vehicles, equipment, agentType);
     }
 
 }

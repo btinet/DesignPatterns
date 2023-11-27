@@ -8,6 +8,7 @@ import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.director.AgentDirector;
 import edu.inflk.patterns.director.VehicleDirector;
 import edu.inflk.patterns.entity.*;
+import edu.inflk.patterns.template.AgentType;
 import edu.inflk.patterns.template.Agent;
 import edu.inflk.patterns.template.Equipment;
 import edu.inflk.patterns.template.Vehicle;
@@ -35,14 +36,17 @@ public class Main {
          */
 
         // BISHER: Agent über Constructor erstellen
-        Agent bond = new Human("james","bond",null,null);
+        Agent bond = new Human("james","bond",null,null, AgentType.EXPERT);
 
         // MIT DESIGN PATTERN: Agent vom Typ Human mit einem Auto instantiieren
         Agent agent1 = new HumanBuilder()
                 .setFirstname("James")
                 .setLastname("Bond")
-                .addVehicle(new CarBuilder().createCar()).addEquipment(new Weapon("Pistole"))
-                .createHuman();
+                .addVehicle(new CarBuilder().createCar())
+                .addEquipment(new Weapon("Pistole"))
+                .setType(AgentType.EXPERT)
+                .createHuman()
+        ;
 
         // Agent vom Typ Dog instantiieren
         Agent agent2 = new DogBuilder().setNickname("Rex").createDog();
@@ -103,6 +107,8 @@ public class Main {
              agentList) {
 
             System.out.println("Agenteneigenschaften:");
+            System.out.println("---------------------");
+            System.out.println(agent.getAgentType());
             System.out.println("---------------------");
 
             System.out.println(agent);

@@ -4,6 +4,7 @@ import edu.inflk.patterns.builder.CarBuilder;
 import edu.inflk.patterns.builder.DogBuilder;
 import edu.inflk.patterns.builder.HumanBuilder;
 import edu.inflk.patterns.entity.Weapon;
+import edu.inflk.patterns.template.AgentType;
 import edu.inflk.patterns.template.Agent;
 
 public class AgentDirector {
@@ -15,6 +16,7 @@ public class AgentDirector {
                 .setLastname("Bond")
                 .addVehicle(new VehicleDirector().createRaceCar(new CarBuilder()))
                 .addEquipment(new Weapon("Wasserpistole"))
+                .setType(AgentType.EXPERT)
         ;
 
         return builder.createHuman();

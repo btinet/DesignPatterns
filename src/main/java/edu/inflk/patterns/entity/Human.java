@@ -1,5 +1,6 @@
 package edu.inflk.patterns.entity;
 
+import edu.inflk.patterns.template.AgentType;
 import edu.inflk.patterns.template.Agent;
 import edu.inflk.patterns.template.Equipment;
 import edu.inflk.patterns.template.Vehicle;
@@ -12,12 +13,13 @@ public class Human extends Agent
     protected String firstname;
     protected String lastname;
 
-    public Human(String firstname, String lastname, ArrayList<Vehicle> vehicles, ArrayList<Equipment> equipment)
+    public Human(String firstname, String lastname, ArrayList<Vehicle> vehicles, ArrayList<Equipment> equipment, AgentType agentType)
     {
         this.firstname = firstname;
         this.lastname = lastname;
         this.vehicles = vehicles;
         this.equipment = equipment;
+        this.agentType = agentType;
     }
 
 
@@ -107,5 +109,7 @@ public class Human extends Agent
     {
         return this.equipment;
     }
+
+
 
 }

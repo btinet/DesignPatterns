@@ -8,6 +8,8 @@ public abstract class Agent {
 
     protected ArrayList<Vehicle> vehicles = new ArrayList<>();
     protected ArrayList<Equipment> equipment = new ArrayList<>();
+    protected AgentType agentType = AgentType.BEGINNER;
+
 
     // Pflichtmethoden
 
@@ -34,6 +36,10 @@ public abstract class Agent {
     public void removeEquipment (Equipment equipment) {}
     public Equipment getEquipment (int index) { return null; }
     public ArrayList<Equipment> getEquipment () { return new ArrayList<>();  }
+
+    public AgentType getAgentType() {
+        return agentType;
+    }
 
     // Allgemeine Methoden
 
