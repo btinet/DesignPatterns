@@ -17,9 +17,9 @@ public class Human extends Agent
     {
         this.firstname = firstname;
         this.lastname = lastname;
-        this.vehicles = vehicles;
-        this.equipment = equipment;
-        this.agentType = agentType;
+        super.vehicles = vehicles;
+        super.equipment = equipment;
+        super.agentType = agentType;
     }
 
 

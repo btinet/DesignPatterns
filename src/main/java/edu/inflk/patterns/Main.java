@@ -119,6 +119,17 @@ public class Main {
                  agent.getVehicles()   ) {
                 System.out.printf("%s: %s %n",vehicle.getVehicleType(),vehicle);
 
+                switch (agent.getAgentType()) {
+                    case INTERMEDIATE:
+                        // tu was
+                        break;
+                    case EXPERT:
+                    case BEGINNER:
+                        // tu was anderes
+                        break;
+                    default:
+                        // ansonsten tu dies und das
+                }
                 // Gibt es einen Motor, alle Daten ausgeben:
 
                 if(vehicle.hasEngine())
